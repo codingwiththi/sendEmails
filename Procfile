@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.enviaEmails --log-file -
+web: gunicorn gettingstarted.wsgi --log-file -
