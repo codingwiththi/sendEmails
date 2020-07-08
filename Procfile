@@ -1,1 +1,1 @@
-web: gunicorn enviaEmails:app
+web: gunicorn gettingstarted.enviaEmails --log-file -
