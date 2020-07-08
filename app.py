@@ -3,7 +3,10 @@ from flask_migrate import Migrate
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:root@localhost:5432/enviaemail"
+# postgres://ywulvpqopzvplr:329e34da03b9d271584693ebb458a0f8d74668a62dde5a89a1edaf9045bf375a@ec2-50-17-90-177.compute-1.amazonaws.com:5432/d70tf4f8bs590r
+# postgresql://postgres:root@localhost:5432/enviaemail
+app.config[
+    'SQLALCHEMY_DATABASE_URI'] = "postgres://ywulvpqopzvplr:329e34da03b9d271584693ebb458a0f8d74668a62dde5a89a1edaf9045bf375a@ec2-50-17-90-177.compute-1.amazonaws.com:5432/d70tf4f8bs590r"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -25,7 +28,6 @@ class EmailModel(db.Model):
 
     def __repr__(self):
         return f"<SMTPEmail {self.mail}>"
-
 
 # @app.route('/email', methods=['POST', 'GET'])
 # def handle_emails():
