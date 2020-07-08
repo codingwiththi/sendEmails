@@ -8,9 +8,7 @@ from flask_migrate import Migrate
 from app import EmailModel
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:root@localhost:5432/enviaemail"
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+
 
 
 
@@ -148,4 +146,8 @@ def test():
     return render_template('envia.html', smtpconfig=smtpconfig)  # just to see what select is
 
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:root@localhost:5432/enviaemail"
+    db = SQLAlchemy(app)
+    migrate = Migrate(app, db)
+    app.run()

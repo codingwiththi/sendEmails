@@ -1,1 +1,1 @@
-web: gunicorn wsgi:enviaEmails
+web: python wsgi.py
