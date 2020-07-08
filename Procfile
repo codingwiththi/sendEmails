@@ -1,1 +1,1 @@
-web: gunicorn enviaEmails:wsgi
+web: gunicorn wsgi:enviaEmails
